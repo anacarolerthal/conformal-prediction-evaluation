@@ -1,0 +1,26 @@
+@misc{guo2017calibration,
+      title={On Calibration of Modern Neural Networks}, 
+      author={Chuan Guo and Geoff Pleiss and Yu Sun and Kilian Q. Weinberger},
+      year={2017},
+      eprint={1706.04599},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+
+@misc{angelopoulos2022gentle,
+      title={A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification}, 
+      author={Anastasios N. Angelopoulos and Stephen Bates},
+      year={2022},
+      eprint={2107.07511},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+
+@misc{shafer2007tutorial,
+      title={A tutorial on conformal prediction}, 
+      author={Glenn Shafer and Vladimir Vovk},
+      year={2007},
+      eprint={0706.3188},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
