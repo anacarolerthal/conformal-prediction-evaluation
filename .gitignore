@@ -193,3 +193,4 @@ shafer08a.pdf
 
 # Ignore the entire folder "data"
 data/
+notebooks/temp_scale.py
