@@ -61,7 +61,7 @@ if __name__ == '__main__':
     epoch = 0
     while True:
         #randomly sample the test and validation set
-        val_set_size = np.random.choice([1000, 1500, 2000, 2500, 3000])
+        val_set_size = np.random.choice([3000])
         test_set_random = torch.utils.data.Subset(test_set, np.random.choice(len(test_set), 5000, replace=False))
         val_set_random = torch.utils.data.Subset(val_set, np.random.choice(len(val_set), val_set_size, replace=False))
 
@@ -142,7 +142,7 @@ if __name__ == '__main__':
         smx = nn.Softmax(dim=1)(predictions)
         smx_ts = nn.Softmax(dim=1)(ts_predictions)
 
-        alpha = np.random.choice([0.02, 0.05, 0.1, 0.15, 0.2, 0.25])
+        alpha = np.random.choice([0.05])
         pred_sets = []
         for i in range(len(smx)):
             temp = 1
