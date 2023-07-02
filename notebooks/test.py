@@ -148,7 +148,7 @@ if __name__ == '__main__':
             temp = 1
             pred_set =[]
             while temp > alpha:
-                temp = smx[i].max()
+                temp -= smx[i].max()
                 pred_set.append(smx[i].argmax())
                 smx[i][smx[i].argmax()] = 0
             pred_sets.append(pred_set)
@@ -158,7 +158,7 @@ if __name__ == '__main__':
             temp = 1
             pred_set =[]
             while temp > alpha:
-                temp = smx_ts[i].max()
+                temp -= smx_ts[i].max()
                 pred_set.append(smx_ts[i].argmax())
                 smx_ts[i][smx_ts[i].argmax()] = 0
             pred_sets_ts.append(pred_set)
