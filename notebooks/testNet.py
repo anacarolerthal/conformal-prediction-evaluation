@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import sys
 path = sys.path.insert(1,"C:/PythonEnviroments/pytorch_resnet_cifar10")
-from resnet import resnet110
+
 from torchvision import transforms
 import torchmetrics
 import dill
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     epoch = 0
     while True:
         #randomly sample the test and validation set
-        val_set_size = np.random.choice([0.1,0.2,0.3,0.4,0.5])
+        val_set_size = np.random.choice([0.2])
         val_set_random, test_set_random = torch.utils.data.random_split(imagenet, [int(len(imagenet)*val_set_size), int(len(imagenet)*(1-val_set_size))])
         val_loader = torch.utils.data.DataLoader(val_set_random, batch_size=8, shuffle=False, num_workers=3)
         test_loader = torch.utils.data.DataLoader(test_set_random, batch_size=8, shuffle=False, num_workers=3)
@@ -116,13 +116,13 @@ if __name__ == '__main__':
         smx = nn.Softmax(dim=1)(predictions)
         smx_ts = nn.Softmax(dim=1)(ts_predictions)
 
-        alpha = np.random.choice([0.02, 0.05, 0.1, 0.15, 0.2, 0.25])
+        alpha = np.random.choice([0.05])
         pred_sets = []
         for i in range(len(smx)):
             temp = 1
             pred_set =[]
             while temp > alpha:
-                temp = smx[i].max()
+                temp -= smx[i].max()
                 pred_set.append(smx[i].argmax())
                 smx[i][smx[i].argmax()] = 0
             pred_sets.append(pred_set)
@@ -132,7 +132,7 @@ if __name__ == '__main__':
             temp = 1
             pred_set =[]
             while temp > alpha:
-                temp = smx_ts[i].max()
+                temp -= smx_ts[i].max()
                 pred_set.append(smx_ts[i].argmax())
                 smx_ts[i][smx_ts[i].argmax()] = 0
             pred_sets_ts.append(pred_set)
